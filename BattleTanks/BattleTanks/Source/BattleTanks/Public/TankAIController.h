@@ -18,4 +18,6 @@ private:
 	
 	void Tick(float DeltaTime) override;
 
+	UPROPERTY(EditAnywhere)
+	float AcceptanceRadius = 3000;
 };
