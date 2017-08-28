@@ -24,9 +24,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Input)
 	void TurnRight(float Throw);
 
-	UFUNCTION(BlueprintCallable, Category = Input)
-	void TurnLeft(float Throw);
-
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void Initialise(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet);
 
