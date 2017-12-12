@@ -57,3 +57,21 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	Barrel->Elevate(DeltaRotator.Pitch);
 	Turret->Rotate(DeltaRotator.Yaw);
 }
+
+void UTankAimingComponent::Fire()
+{
+	if (!ensure(Barrel)) { return; }
+
+	bool isReloaded = (FPlatformTime::Seconds() - TimeOfLastShot) > ReloadTime;
+
+	if (isReloaded)
+	{
+		auto Projectile = GetWorld()->SpawnActor<AProjectile>(
+			ProjectileBlueprint,
+			Barrel->GetSocketLocation(FName("BarrelEnd")),
+			Barrel->GetSocketRotation(FName("BarrelEnd")));
+
+		Projectile->LaunchProjectile(LaunchSpeed);
+		TimeOfLastShot = FPlatformTime::Seconds();
+	}
+}
