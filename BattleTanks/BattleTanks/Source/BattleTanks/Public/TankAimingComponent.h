@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Projectile.h"
 #include "Components/ActorComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "TankAimingComponent.generated.h"
@@ -16,6 +15,7 @@ enum class EFiringState : uint8
 	Locked
 };
 
+class AProjectile;
 class UTankBarrel;
 class UTurret;
 

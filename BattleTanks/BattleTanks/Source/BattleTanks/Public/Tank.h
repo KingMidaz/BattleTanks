@@ -6,9 +6,6 @@
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
 
-class UTankBarrel;
-class AProjectile;
-
 UCLASS()
 class BATTLETANKS_API ATank : public APawn
 {
