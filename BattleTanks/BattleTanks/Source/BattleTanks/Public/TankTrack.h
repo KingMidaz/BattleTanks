@@ -20,5 +20,19 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category = Driving)
 	float TrackMaxDrivingForce = 400000;
+
+private:
+	UTankTrack();
+	
+	void BeginPlay();
+
+	void ApplySidewaysForce();
+
+	void DriveTrack();
+
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+	
+	float CurrentThrottle = 0;
 	
 };
