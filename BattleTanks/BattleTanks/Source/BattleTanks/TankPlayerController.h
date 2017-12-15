@@ -20,6 +20,8 @@ private:
 	void BeginPlay() override;
 	
 	void Tick(float DeltaTime) override;
+	
+	virtual void SetPawn(APawn* InPawn) override;
 
 	void AimTowardsCrosshair();
 
@@ -28,6 +30,9 @@ private:
 	bool GetLookDirection(FVector2D, FVector&) const;
 
 	bool GetLookVectorHitLocation(FVector, FVector&) const;
+
+	UFUNCTION()
+	void OnTankDeath();
 
 	UPROPERTY(EditAnywhere)
 	float CrosshairXLocation = 0.5;

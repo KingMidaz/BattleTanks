@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "BattleTanks.h"
 #include "CoreMinimal.h"
 #include "AIController.h"
 #include "TankAIController.generated.h"
@@ -16,6 +17,11 @@ protected:
 
 private:
 	void BeginPlay() override;
+
+	UFUNCTION()
+	void OnTankDeath();
+
+	virtual void SetPawn(APawn* InPawn) override;
 	
 	void Tick(float DeltaTime) override;
 };
